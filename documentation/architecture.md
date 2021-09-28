@@ -109,10 +109,10 @@ Deployment
 
 ### Maintainance
 
-Currently, the different parts of the OSM-Analytics Stack are deployed and maintained by differnet entities:
+The different parts of the OSM-Analytics Stack are deployed and maintained by differnet entities:
 
-* the base data (osm-qa-tiles) is provided by [mapbox](https://mapbox.com) on https://osmlab.github.io/osm-qa-tiles/
-* the cruncher, the vector tiles server as well as the osm-analytics-api are run by the [World Bank](https://opendri.org/)
+* the base data (osm-qa-tiles) is provided by the [Humanitarian OpenStreetMap Team (HOT)](https://hotosm.org/) (it was previously provided and originally developed by [Mapbox](https://mapbox.com)) on https://osmlab.github.io/osm-qa-tiles/
+* the cruncher, the vector tiles server as well as the osm-analytics-api are run by [HeiGIT](https://heigit.org/) (previously these were operated by the [World Bank](https://opendri.org/))
 * the osm-analytics frontend and website are maintained by the [Humanitarian OpenStreetMap Team](https://www.hotosm.org/)
 
 ### Computation Requirements
