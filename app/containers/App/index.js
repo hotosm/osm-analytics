@@ -122,7 +122,7 @@ class App extends Component {
           <a className="close-link" onClick={this.closeModal}>
             x
           </a>
-          <p>OSM Analytics is shutting down.</p>
+          <p>OSM Analytics will be ending service soon. For alternatives to analyzing OSM data history, quality, and completeness, use the <a className="external-link" target='_blank' rel='noreferrer noopener' style={themes[theme].externalLink}  href="https://dashboard.ohsome.org">ohsome dashboard</a>, developed and maintained by our partners at HeiGIT.</p>
         </Modal>
       </div>
     )
