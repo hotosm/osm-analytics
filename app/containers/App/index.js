@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Modal from 'react-modal'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as MapActions from '../../actions/map'
@@ -16,7 +17,16 @@ import style from './style.css'
 class App extends Component {
   state = {
     hotProjectsLoaded: false,
-    layersLoaded: false
+    layersLoaded: false,
+    isModalOpen: true
+  }
+
+  openModal = () => {
+    this.setState({ isModalOpen: true })
+  }
+
+  closeModal = () => {
+    this.setState({ isModalOpen: false })
   }
 
   render() {
@@ -65,6 +75,28 @@ class App extends Component {
       )
     }
 
+    const modalStyles = {
+      overlay: {
+        backgroundColor: 'rgba(60,60,60, 0.5)'
+      },
+      content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        maxHeight: '350px',
+        maxWidth: '512px',
+        minWidth: '300px',
+        borderRadius: '4px',
+        paddingTop: '25px',
+        paddingBottom: '35px',
+        paddingLeft: '35px',
+        paddingRight: '35px'
+      }
+    }
+
     return (
       <div className="main">
         {header}
@@ -81,6 +113,17 @@ class App extends Component {
         {route.view === 'country' && embed === false ? <Stats layers={this.state.layers} mode={routeParams.overlay}/> : ''}
         {route.view === 'compare' && embed === false ? <CompareBar layers={this.state.layers} times={routeParams.times}/> : ''}
         { embed ? <a className="external-link" target='_blank' rel='noreferrer noopener' style={themes[theme].externalLink} href='http://osm-analytics.org/'>View on osm-analytics.org</a> : '' }
+      
+        <Modal
+          isOpen={this.state.isModalOpen}
+          style={modalStyles}
+        >
+          <h3>Shutdown Notice</h3>
+          <a className="close-link" onClick={this.closeModal}>
+            x
+          </a>
+          <p>OSM Analytics will be ending service soon. For alternatives to analyzing OSM data history, quality, and completeness, use the <a className="external-link" target='_blank' rel='noreferrer noopener' style={themes[theme].externalLink}  href="https://dashboard.ohsome.org">ohsome dashboard</a>, developed and maintained by our partners at HeiGIT.</p>
+        </Modal>
       </div>
     )
   }
